@@ -5,8 +5,9 @@ const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? '';
 const isCiPagesBuild = process.env.GITHUB_ACTIONS === 'true';
 const basePath = isCiPagesBuild && repositoryName ? `/${repositoryName}/` : '/';
 
-export default defineConfig({
-  base: basePath,
+export default defineConfig(({ mode }) => ({
+  // The docs build is published from a repository subpath, so it needs relative assets.
+  base: mode === 'docs' ? './' : basePath,
   plugins: [react()],
   server: {
     port: 5173,
@@ -22,4 +23,4 @@ export default defineConfig({
     port: 4173,
     host: '0.0.0.0',
   },
-});
+}));

@@ -26,22 +26,24 @@ docker compose up --build
 - Link único do app: `http://localhost:3010`
 - API interna do app: `/api/v1`
 
-## Deploy no GitHub Pages
+## Deploy no GitHub Pages por pasta docs
 
-O repositório já está configurado com workflow para deploy automático do frontend.
+Agora o frontend pode ser publicado diretamente pela pasta `docs` da branch `main`.
 
-- Workflow: `.github/workflows/deploy-pages.yml`
-- Branch de deploy: `main`
-- Diretório publicado: `delivery-web/dist`
+### Gerar os arquivos estáticos
+
+1. Entre em `delivery-web`.
+2. Execute `npm run build:docs`.
+3. O build é gerado em `docs/` (na raiz do repositório).
 
 ### Como ativar no GitHub
 
 1. Acesse `Settings` > `Pages` no repositório.
-2. Em `Build and deployment`, selecione `Source: GitHub Actions`.
-3. Faça commit e push na branch `main`.
-4. Aguarde o workflow `Deploy Frontend to GitHub Pages` finalizar.
+2. Em `Build and deployment`, selecione `Source: Deploy from a branch`.
+3. Em `Branch`, selecione `main` e a pasta `/docs`.
+4. Salve e faça commit/push do conteúdo atualizado em `docs`.
 
 ### Observações
 
-- O build de Pages ativa `VITE_DELIVERY_MOCK_MODE=true` para o frontend funcionar sem backend.
-- O `base` do Vite é ajustado automaticamente para o nome do repositório durante o build do GitHub Actions..
+- O comando `build:docs` usa `--mode docs`, que ativa `VITE_DELIVERY_MOCK_MODE=true` via `delivery-web/.env.docs`.
+- O build em modo docs usa base relativa (`./`) para funcionar corretamente em subpasta de repositório no Pages.
