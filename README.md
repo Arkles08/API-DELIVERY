@@ -44,4 +44,4 @@ O repositório já está configurado com workflow para deploy automático do fro
 ### Observações
 
 - O build de Pages ativa `VITE_DELIVERY_MOCK_MODE=true` para o frontend funcionar sem backend.
-- O `base` do Vite é ajustado automaticamente para o nome do repositório durante o build do GitHub Actions.
+- O `base` do Vite é ajustado automaticamente para o nome do repositório durante o build do GitHub Actions..
