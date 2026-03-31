@@ -2,6 +2,10 @@ import type { ChangeEvent, FormEvent } from 'react';
 import { useState } from 'react';
 
 import {
+  ADMIN_DEMO_EMAIL,
+  ADMIN_DEMO_PASSWORD,
+  CUSTOMER_DEMO_EMAIL,
+  CUSTOMER_DEMO_PASSWORD,
   useAuthStore,
   type AuthState,
 } from '../store/auth.store';
@@ -109,6 +113,22 @@ export function LoginPage() {
             <button className={styles.button} type="submit" disabled={isSubmitting}>
               {isSubmitting ? 'Validando...' : 'Entrar'}
             </button>
+
+            <div className={styles.demoCredentials}>
+              <span className={styles.demoTitle}>Credenciais de teste</span>
+
+              <div className={styles.demoItem}>
+                <strong>Admin</strong>
+                <span>Email: {ADMIN_DEMO_EMAIL}</span>
+                <span>Senha: {ADMIN_DEMO_PASSWORD}</span>
+              </div>
+
+              <div className={styles.demoItem}>
+                <strong>Cliente</strong>
+                <span>Email: {CUSTOMER_DEMO_EMAIL}</span>
+                <span>Senha: {CUSTOMER_DEMO_PASSWORD}</span>
+              </div>
+            </div>
           </form>
         </article>
       </section>
