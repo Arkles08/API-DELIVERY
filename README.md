@@ -28,7 +28,7 @@ docker compose up --build
 
 ## Deploy no GitHub Pages por pasta docs
 
-Agora o frontend pode ser publicado diretamente pela pasta `docs` da branch `main`.
+Agora o frontend pode ser publicado diretamente pela pasta `docs` da branch padrão do repositório.
 
 ### Gerar os arquivos estáticos
 
@@ -40,7 +40,7 @@ Agora o frontend pode ser publicado diretamente pela pasta `docs` da branch `mai
 
 1. Acesse `Settings` > `Pages` no repositório.
 2. Em `Build and deployment`, selecione `Source: Deploy from a branch`.
-3. Em `Branch`, selecione `main` e a pasta `/docs`.
+3. Em `Branch`, selecione a branch padrão do repositório (neste projeto, `master`) e a pasta `/docs`.
 4. Salve e faça commit/push do conteúdo atualizado em `docs`.
 
 ### Observações
